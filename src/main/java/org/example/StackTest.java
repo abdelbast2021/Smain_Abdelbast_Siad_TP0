@@ -10,6 +10,7 @@ public class StackTest {
 
     private Stack p;
 
+
     @BeforeEach
     public void setUp(){
         p = new Stack();
