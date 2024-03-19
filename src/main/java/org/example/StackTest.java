@@ -32,6 +32,17 @@ public class StackTest {
     }
 
     @Test
+    public void testPeek() {
+        Stack stack = new Stack();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+
+        assertEquals(3, stack.peek());
+        assertEquals(3, stack.peek()); // Peeking multiple times should not alter the stack
+    }
+
+    @Test
     public void isEmptyTest(){
 
         try{
@@ -64,6 +75,13 @@ public class StackTest {
         }
 
     }
+    @Test
+    public void testPeekOnEmptyStack() {
+        Stack stack = new Stack();
+        assertThrows(IllegalStateException.class, () -> {
+            stack.peek();
+        });
+    }
 
 
     @Test
@@ -86,6 +104,21 @@ public class StackTest {
         Assertions.assertEquals(11,result);
 
 
-
     }
+
+    @Test
+    public void testSize() {
+        Stack stack = new Stack();
+        assertEquals(0, stack.size());
+
+        stack.push(1);
+        assertEquals(1, stack.size());
+
+        stack.push(2);
+        assertEquals(2, stack.size());
+
+        stack.pop();
+        assertEquals(1, stack.size());
+    }
+
 }
